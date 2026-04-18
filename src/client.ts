@@ -20,8 +20,10 @@ function readX402Headers(headers: Headers): X402Headers {
   return { price, recipient, chain };
 }
 
+const DEFAULT_BASE_URL = 'https://governor.proceedgate.dev';
+
 export function createProceedGateClient(opts: ProceedGateClientOptions): ProceedGateClient {
-  const baseUrl = normalizeBaseUrl(opts.baseUrl);
+  const baseUrl = normalizeBaseUrl(opts.baseUrl ?? DEFAULT_BASE_URL);
   const fetchImpl = opts.fetchImpl ?? fetch;
   const defaultHeaders = opts.defaultHeaders ?? {};
   const failMode = opts.failMode ?? 'closed';

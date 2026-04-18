@@ -82,7 +82,8 @@ export type X402Headers = {
 };
 
 export type ProceedGateClientOptions = {
-  baseUrl: string;
+  /** Defaults to https://governor.proceedgate.dev */
+  baseUrl?: string;
   actor: Actor;
   fetchImpl?: typeof fetch;
   defaultHeaders?: Record<string, string>;
